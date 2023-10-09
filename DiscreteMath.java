@@ -102,7 +102,7 @@ class Set<T> //T represents type
 	//Cartesian Product
 	public Set<OrderedPair<T>> cartprod(Set<T> b)
 	{
-		Set<OrderedPair<T>> cp = new Set();
+		Set<OrderedPair<T>> cp = new Set<OrderedPair<T>>();
 		int i,j;
 
 		//We associate each A element with all B elements
@@ -121,7 +121,7 @@ class Set<T> //T represents type
 	public Set<T> difference(Set<T> b)
 	{
 		Set<T> dif = new Set<T>();
-		int i,j;
+		int i;
 
 		// Copy all elements from A to dif
 		for (i = 0; i < this.data.size(); i++) 
@@ -189,7 +189,7 @@ class Relation<T> extends Set<OrderedPair<T>>
 
 	public void relmatrix()
 	{
-		int i, j;
+		int i;
 		T one, two;
 		mr = new BoolMatrix(a.data.size(), b.data.size());
 
@@ -213,7 +213,7 @@ class Relation<T> extends Set<OrderedPair<T>>
 	
 	public boolean isReflexive()
 	{
-		int i,j;
+		int i;
 		boolean flag = false;
 
 		if(this.a.equals(this.b))
@@ -241,10 +241,7 @@ class Relation<T> extends Set<OrderedPair<T>>
 	//M*M <= M
 	public boolean isTransitive()
 	{
-		int i,j;
-		BoolMatrix x = new BoolMatrix(mr.getRow(), mr.getCol());
 		
-
 		if(this.a.equals(this.b))
 		{
 			return (mr.product(mr).minorEqual(mr)); //M^2 is less or equals to M
@@ -262,7 +259,6 @@ class Relation<T> extends Set<OrderedPair<T>>
 	//M^t = M
 	public boolean isSymmetric()
 	{
-		int i,j;
 		
 
 		if(this.a.equals(this.b))
@@ -376,7 +372,7 @@ class Matrix<T>
 	public Matrix<T> transpose()
 	{
 		int i,j;
-		Matrix<T> t = new Matrix(this.row, this.col);
+		Matrix<T> t = new Matrix<T>(this.row, this.col);
 		for (i = 0; i < this.row; i++) 
         {
             for (j = 0; j < this.col; j++) 
@@ -444,7 +440,7 @@ class BoolMatrix extends Matrix<Integer>
 	//Matrix Multiplication
 	public BoolMatrix product(BoolMatrix b)
 	{
-		int i,j,k,l;
+		int i,j,k;
 		BoolMatrix mult = new BoolMatrix(this.row, b.col);
 		//Initialize Matrix in 0s
 		mult.setMatrix0();
@@ -573,10 +569,10 @@ class DiscreteMath
 		B.add("7");
 		System.out.println(B);
 
-		R.add(new OrderedPair("4", "4"));
-		R.add(new OrderedPair("5", "5"));
-		R.add(new OrderedPair("6", "6"));
-		R.add(new OrderedPair("7", "7"));
+		R.add(new OrderedPair<String>("4", "4"));
+		R.add(new OrderedPair<String>("5", "5"));
+		R.add(new OrderedPair<String>("6", "6"));
+		R.add(new OrderedPair<String>("7", "7"));
 
 		System.out.println(R);
 
