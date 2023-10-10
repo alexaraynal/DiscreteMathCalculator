@@ -36,7 +36,7 @@ class Set<T> //T represents type
 	public String toString() //Gives format to string conversion
 	{
 		int i;
-		String s = "[";
+		String s = "{";
 		for(i=0; i<(data.size()); i++)
 		{
 			s = s + data.get(i);
@@ -45,7 +45,7 @@ class Set<T> //T represents type
 				s = s + ", ";
 			}
 		}
-		s = s + "]";
+		s = s + "}";
 		return(s);
 	}
 
