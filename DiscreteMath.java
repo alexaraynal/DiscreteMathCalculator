@@ -48,7 +48,7 @@ class Set<T> //T represents type
 	public String toString() //Gives format to string conversion
 	{
 		int i;
-		String s = "[";
+		String s = "{";
 		for(i=0; i<(data.size()); i++)
 		{
 			s = s + data.get(i);
@@ -57,7 +57,7 @@ class Set<T> //T represents type
 				s = s + ", ";
 			}
 		}
-		s = s + "]";
+		s = s + "}";
 		return(s);
 	}
 
@@ -489,7 +489,7 @@ class PartialOrderR<T> extends Relation<T>
 		        System.out.println("Painted:"+text);
 
 		        if (i > 0) 
-		        	connectPoints(g, orderHass, i, j, x, y, lvlLen, w);
+		        	connectPoints(g, orderHass, i, j, 1, x, y, lvlLen, w);
 		        //Draw text
 		        
 		        g.drawString(text, x - diameter / 2, y + diameter / 2 + 10);
@@ -503,56 +503,35 @@ class PartialOrderR<T> extends Relation<T>
 
     }
 
-    private void connectPoints(Graphics g, ArrayList<ArrayList<Object>> orderHass, int i, int j, int x, int y, int lvlLen, int w) 
+    private void connectPoints(Graphics g, ArrayList<ArrayList<Object>> orderHass, int i, int j, int r, int x, int y, int lvlLen, int w) 
 	{
 	    // Verify to which predecessor the point should be connected
 	    boolean flag = false;
-	    for (int k = 0; k < orderHass.get(i - 1).size(); k++) 
+	    for (int k = 0; k < orderHass.get(i - r).size(); k++) 
 	    {
-	        OrderedPair<T> ordpair = new OrderedPair<T>((T) orderHass.get(i - 1).get(k), (T) orderHass.get(i).get(j));
+	        OrderedPair<T> ordpair = new OrderedPair<T>((T) orderHass.get(i - r).get(k), (T) orderHass.get(i).get(j));
 	        System.out.println(ordpair);
 
 	        if (this.data.contains(ordpair)) 
 	        {
-	            paintLine(g, orderHass, w, k, i, y, x, lvlLen);
+	            paintLine(g, orderHass, w, k, i, r, y, x, lvlLen);
 	            flag = true;
-
 	        } 
 	    }
 
-	    if((i-2 >=0)&&!flag) 
+	    if(!flag) 
 	    {
 	        // If a connection is not found on the current level, try searching on lower levels
-	        connectPoints(g, orderHass, i - 1, j, x, y, lvlLen, w);
+	        connectPoints(g, orderHass, i, j, (r+1), x, y, lvlLen, w);
 	    }
 	}
 
-    /*
-    private void connectPoints(Graphics g, ArrayList<ArrayList<Object>> orderHass, int i, int j, int x, int y, int lvlLen, int w) 
-    {
-    	//Verify to which predecessor the point should be connected
-    	//System.out.println(this.data);
-    	for(int k = 0; k<orderHass.get(i-1).size(); k++)
-    	{
-    		OrderedPair<T> ordpair = new OrderedPair<T>((T)orderHass.get(i-1).get(k), (T)orderHass.get(i).get(j));
-    		System.out.println(ordpair);
-    		if(this.data.contains(ordpair))
-    		{
-    			paintLine(g, orderHass, w, k, i, y, x, lvlLen);
-    		}
-    		else
-    		{
-
-    		}
-    	}
-	}*/
-
-	private void paintLine(Graphics g, ArrayList<ArrayList<Object>> orderHass, int w, int k, int i, int y, int x, int lvlLen)
+	private void paintLine(Graphics g, ArrayList<ArrayList<Object>> orderHass, int w, int k, int i, int r, int y, int x, int lvlLen)
 	{
 		System.out.println("Loop entered");
-    	int lvlW = w / orderHass.get(i-1).size();
+    	int lvlW = w / orderHass.get(i-r).size();
     	int prevX = k * lvlW + (lvlW / 2); ;
-    	int prevY = y + lvlLen;
+    	int prevY = y + r*lvlLen;
     	g.drawLine(prevX, prevY, x, y);
 	}
 }
@@ -1018,3 +997,6 @@ class DiscreteMath extends Frame
     }
 
 }
+
+
+
