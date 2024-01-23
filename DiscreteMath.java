@@ -817,11 +817,10 @@ class DiscreteMath extends Frame
 		A.add("e");
 		A.add("f");
 		A.add("g");
-		/*
 		A.add("h");
 		A.add("i");
 		A.add("j");
-		A.add("k"); */
+		A.add("k");
 		System.out.println(A);
 
 		B.add("a");
@@ -831,12 +830,10 @@ class DiscreteMath extends Frame
 		B.add("e");
 		B.add("f");
 		B.add("g");
-
-		/*
 		B.add("h");
 		B.add("i");
 		B.add("j");
-		B.add("k"); */
+		B.add("k"); 
 		System.out.println(B);
 
 		R.add(new OrderedPair<String>("a", "a"));
@@ -846,34 +843,15 @@ class DiscreteMath extends Frame
 		R.add(new OrderedPair<String>("e", "e"));
 		R.add(new OrderedPair<String>("f", "f"));
 		R.add(new OrderedPair<String>("g", "g"));
-
-		/*
 		R.add(new OrderedPair<String>("h", "h"));
 		R.add(new OrderedPair<String>("i", "i"));
 		R.add(new OrderedPair<String>("j", "j"));
-		R.add(new OrderedPair<String>("k", "k")); */
+		R.add(new OrderedPair<String>("k", "k")); 
 
-		//R.add(new OrderedPair<String>("a", "b"));
-		R.add(new OrderedPair<String>("e", "c"));
-		R.add(new OrderedPair<String>("e", "b"));
-
-		R.add(new OrderedPair<String>("f", "d"));
-		R.add(new OrderedPair<String>("f", "a"));
-		R.add(new OrderedPair<String>("f", "b"));
-
-		R.add(new OrderedPair<String>("g", "e"));
-		R.add(new OrderedPair<String>("g", "c"));
-		R.add(new OrderedPair<String>("g", "b"));
-
-
-		R.add(new OrderedPair<String>("d", "a"));
-
-
-		R.add(new OrderedPair<String>("d", "b"));
-		//R.add(new OrderedPair<String>("d", "f"));
-
-
-		/*
+		R.add(new OrderedPair<String>("a", "b"));
+		R.add(new OrderedPair<String>("a", "c"));
+		R.add(new OrderedPair<String>("a", "d"));
+		R.add(new OrderedPair<String>("a", "e"));
 		R.add(new OrderedPair<String>("a", "f"));
 		R.add(new OrderedPair<String>("a", "g"));
 		R.add(new OrderedPair<String>("a", "h"));
@@ -884,24 +862,24 @@ class DiscreteMath extends Frame
 		R.add(new OrderedPair<String>("b", "h"));
 		R.add(new OrderedPair<String>("b", "i")); 
 
+		R.add(new OrderedPair<String>("h", "i"));
+
+		R.add(new OrderedPair<String>("g", "i"));
+		R.add(new OrderedPair<String>("g", "j"));
+
 		R.add(new OrderedPair<String>("c", "g"));
 		R.add(new OrderedPair<String>("c", "j"));
 		R.add(new OrderedPair<String>("c", "f"));
 		R.add(new OrderedPair<String>("c", "k"));
 		R.add(new OrderedPair<String>("c", "i"));
 
-		R.add(new OrderedPair<String>("d", "f"));
 		R.add(new OrderedPair<String>("d", "k"));
+		R.add(new OrderedPair<String>("d", "f"));	
 
 		R.add(new OrderedPair<String>("e", "f"));
 		R.add(new OrderedPair<String>("e", "k"));
 
-		R.add(new OrderedPair<String>("h", "i"));
-
-		R.add(new OrderedPair<String>("g", "i"));
-		R.add(new OrderedPair<String>("g", "j"));
-
-		R.add(new OrderedPair<String>("f", "k")); */
+		R.add(new OrderedPair<String>("f", "k")); 
 	
 
 
